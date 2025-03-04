@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-vyf1edexog_48cmtf8e8md#my5fjf()8!l&a=60k=$=a-j1u1p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.onrender.com']
 
 CORS_ALLOW_ALL_ORIGINS=True #coneccion
 
@@ -103,8 +103,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'reduccion_de_desperdicios',  # El nombre de tu base de datos en MySQL
-        'USER': 'jeffry',  # Tu usuario de MySQL
-        'PASSWORD': 'Jffry.1126',  # La contraseña de tu usuario MySQL
+        'USER': 'root',  # Tu usuario de MySQL
+        'PASSWORD': '12345678',  # La contraseña de tu usuario MySQL
         'HOST': '127.0.0.1',  # Si estás ejecutando MySQL localmente
         'PORT': '3306',  # El puerto por defecto de MySQL
     }
