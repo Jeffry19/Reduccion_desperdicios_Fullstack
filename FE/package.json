@@ -11,6 +11,11 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.4.6",
+    "@mui/material": "^6.4.6",
+    "@mui/styled-engine-sc": "^6.4.6",
     "@paypal/react-paypal-js": "^8.7.0",
     "axios": "^1.7.9",
     "bootstrap": "^5.3.3",
@@ -28,6 +33,7 @@
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.28.0",
+    "styled-components": "^6.1.15",
     "uuid": "^11.0.3"
   },
   "devDependencies": {

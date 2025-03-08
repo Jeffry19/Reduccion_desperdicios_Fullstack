@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import token from '../../services/token'
 import { Link } from 'react-router-dom'
 import { Modal, Button, Alert } from 'react-bootstrap'
+import Typography from '@mui/material/Typography';
+
 
 function LoginButton() {
 const [username, setUsername]= useState("")
@@ -33,10 +35,10 @@ const IniciarSesion=async(e)=>{
 }
 
   return (
-    <div className="login-container">
-      <Button variant="primary" onClick={handleShow} className="btn-login33">
-        Ingreso
-      </Button>
+    <div >
+      <div  onClick={handleShow} > Ingreso</div>
+      <div  className="login-container"  >    
+     
 
       <Modal show={showModal} onHide={handleClose} centered>
         <Modal.Header className='modal-header3' closeButton >
@@ -83,6 +85,7 @@ const IniciarSesion=async(e)=>{
           </form>
         </Modal.Body>
       </Modal>
+      </div>
     </div>
   )
 }
