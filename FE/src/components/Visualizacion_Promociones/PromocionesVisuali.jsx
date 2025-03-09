@@ -3,8 +3,8 @@ import "../../css/VisualizacionPromociones.css";
 import Modal from "../Modal/Modal";
 import { json, Link, useNavigate } from "react-router-dom";
 import GetPromociones from "../../services/Promociones/GetPromociones";
-import { Alert } from "react-bootstrap";
-
+import { Alert } from "react-bootstrap"
+import compra from '../../assets/compra.mp4'
 import LoginButton from "../LoginButton";
 import { jwtDecode } from "jwt-decode";
 import Enlatados from "../../img/Enlatados.png";
@@ -15,6 +15,8 @@ import { GetProducts } from "../../services/GetProducts";
 import BotonPerfil from "../BotonPerfil/BotonPerfil";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
+import SplitText from "./SplitText.jsx";
+import AnimatedContent from '../../Reactbits/AnimatedContent.jsx'
 
 
 function PromocionesVisuali() {
@@ -122,11 +124,26 @@ function PromocionesVisuali() {
     localStorage.clear(); // Limpia el almacenamiento local.
     window.location.reload(); // Recarga la página.
     navigate("/"); // Redirige a la página principal.
-  }
+  } 
+
+  const handleAnimationComplete = () => {
+    console.log('All letters have animated!');
+  };
 
   return (
     <div>
-          <div>
+  <AnimatedContent
+  distance={150}
+  direction="vertical"
+  reverse={false}
+  config={{ tension: 80, friction: 20 }}
+  initialOpacity={0.1}
+  animateOpacity
+  scale={1.1}
+  threshold={0.2}
+>
+ 
+  <div>
       {/* Usamos el componente Navbar */}
       <Navbar 
         carrito={carrito}
@@ -153,7 +170,11 @@ function PromocionesVisuali() {
           </Alert>
         )}
       </div>
-      <img src={Imagen1} alt="" className="Imagen-bienvenida" />
+      <video src={compra}
+        autoPlay  // Reproducción automática
+        muted    // Sin sonido (recomendado para autoplay)
+        loop     
+       alt="" className="Imagen-bienvenida" />
 
       <div className="bienvenida-container">
         <h1 className="bienvenida-titulo">¡Bienvenidos a Nuestra Tienda!</h1>
@@ -162,20 +183,50 @@ function PromocionesVisuali() {
       <br />
       <br />
       <div className="Texto-bienvenida">
-        <p className="bienvenida-texto">
-          Descubre ofertas increíbles y productos seleccionados cuidadosamente
-          para ti.
-          <span className="bienvenida-resalta">
-            ¡Calidad y frescura garantizada!
-          </span>
-        </p>
-        <p className="bienvenida-texto">
-          Aprovecha nuestras promociones exclusivas y llena tu carrito con
-          productos irresistibles.
-        </p>
-        <p className="bienvenida-texto">
-          ¡No esperes más, explora nuestro catálogo hoy mismo!
-        </p>
+      <SplitText
+        text="Descubre ofertas increíbles y productos seleccionados cuidadosamente para ti."
+        className="bienvenida-texto"
+        delay={10}
+        animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
+        animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+        easing="easeOutCubic"
+        threshold={0.2}
+        rootMargin="-50px"
+        onLetterAnimationComplete={handleAnimationComplete}
+      />
+      <SplitText
+        text="¡Calidad y frescura garantizada!"
+        className="bienvenida-resalta"
+        delay={10}
+        animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
+        animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+        easing="easeOutCubic"
+        threshold={0.2}
+        rootMargin="-50px"
+        onLetterAnimationComplete={handleAnimationComplete}
+      />
+      <SplitText
+        text="Aprovecha nuestras promociones exclusivas y llena tu carrito con productos irresistibles."
+        className="bienvenida-texto"
+        delay={10}
+        animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
+        animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+        easing="easeOutCubic"
+        threshold={0.2}
+        rootMargin="-50px"
+        onLetterAnimationComplete={handleAnimationComplete}
+      />
+      <SplitText
+        text="¡No esperes más, explora nuestro catálogo hoy mismo!"
+        className="bienvenida-texto"
+        delay={10}
+        animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
+        animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+        easing="easeOutCubic"
+        threshold={0.2}
+        rootMargin="-50px"
+        onLetterAnimationComplete={handleAnimationComplete}
+      />
       </div>
 
       {/* Sección de categorías destacadas */}
@@ -321,6 +372,8 @@ function PromocionesVisuali() {
       </div>
 
       <Footer />
+</AnimatedContent>
+        
     </div>
   );
 }

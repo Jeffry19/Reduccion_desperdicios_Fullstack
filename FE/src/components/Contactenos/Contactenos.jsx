@@ -1,36 +1,126 @@
-import React, { useState } from 'react'
+
 import emailjs from "@emailjs/browser";
 import { Link } from 'react-router-dom';
-import LoginButton from '../LoginButton';
 import BotonPerfil from '../BotonPerfil/BotonPerfil';
-import Imagen2 from '../../img/Imagen2.jpg'
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Menu from '@mui/material/Menu';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+import MenuItem from '@mui/material/MenuItem';
+import MenuIcon from '@mui/icons-material/Menu';
+import Container from '@mui/material/Container';
+import logo3 from '../../img/logo3.png'
+
+const pages = [
+
+  { name: 'Acerca de nosotros', path: '/acercade' },
+  { name: 'Contactenos', path: '/contactenos' }
+];
+
+const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Contactenos() {
-    const [isLogin, setIsLogin] = useState(false);
+    const [isLogin, setIsLogin] = React.useState(false);
     const SendEmail= (event)=>{
         event.preventDefault();
     
         emailjs.sendForm('service_bflcyx9', 'template_sqeloqb', event.target, 'tMD2iG4ioZstSyWsK')
       }
+
+      const [anchorElNav, setAnchorElNav] = React.useState(null);
+      const [anchorElUser, setAnchorElUser] = React.useState(null);
+    
+      const handleOpenNavMenu = (event) => {
+        setAnchorElNav(event.currentTarget);
+      };
+      const handleOpenUserMenu = (event) => {
+        setAnchorElUser(event.currentTarget);
+      };
+      const handleCloseNavMenu = () => {
+        setAnchorElNav(null);
+      };
+      const handleCloseUserMenu = () => {
+        setAnchorElUser(null);
+      };
+      
   return (
     <div>
-        <div className="navbar-categories">
-  <ul className="categories-list">{<BotonPerfil/>}
-
-    <li className="category-item">
-      <Link to='/'><button className="category-button">Pagina Principal</button></Link>
-    </li>
- <li className="category-item">
-      <Link to='/acercade'><button className="category-button">Acerca de nosotros</button></Link>
-    </li>
-<li className="category-item">
-      <Link to='/contactenos'><button className="category-button">Contactenos</button></Link>
-    </li>
-    
-   
-<li className="carrito-item"></li>
-</ul>
-</div>
+        <AppBar position="static" color="primary">
+      <Container maxWidth="xl">
+        <Toolbar>
+          <Box sx={{ display: 'flex', alignItems: 'center', width: '100%' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <IconButton
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="menu"
+                onClick={handleOpenNavMenu}
+                sx={{ display: { xs: 'block', md: 'none' } }}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Typography
+                variant="h6"
+                component={Link}
+                to="/"
+                sx={{ textDecoration: 'none', color: 'white', ml: 2 }}
+              >
+               <img src={logo3} alt="" width="100" height="100" />
+              </Typography>
+            </Box>
+            <Box sx={{ display: 'flex', alignItems: 'center', ml: 2 }}>
+              {pages.map((page) => (
+                <Button key={page.name} component={Link} to={page.path} color="inherit">
+                  {page.name}
+                </Button>
+              ))}
+            </Box>
+            <Box sx={{ flexGrow: 1 }} />
+            <Box sx={{ flexGrow: 0 }}>
+              
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                {<BotonPerfil/>}
+                   
+                </IconButton>
+             
+              <Menu
+                sx={{ mt: '45px' }}
+                anchorEl={anchorElUser}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              >
+                {settings.map((setting) => (
+                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">{setting}</Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+          </Box>
+        </Toolbar>
+        <Menu
+          anchorEl={anchorElNav}
+          open={Boolean(anchorElNav)}
+          onClose={handleCloseNavMenu}
+          sx={{ display: { xs: 'block', md: 'none' } }}
+        >
+          {pages.map((page) => (
+            <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+              <Typography component={Link} to={page.path} sx={{ textDecoration: 'none', color: 'inherit' }}>
+                {page.name}
+              </Typography>
+            </MenuItem>
+          ))}
+        </Menu>
+      </Container>
+    </AppBar>
 
 <div>
       <section className="py-5" >
