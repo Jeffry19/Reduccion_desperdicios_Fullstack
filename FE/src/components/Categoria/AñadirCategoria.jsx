@@ -119,8 +119,8 @@ function AñadirCategoria() {
                 </Alert>
               )}  
             </div>
-      <div className="contenedor-principal">
-  <div className="form-container">
+      <div className="contenedor-principal-category">
+  <div className="form-container-category">
     <form className="category-form" onSubmit={AddCategoria}>
       <h2 className="form-title">Agregar Categoría</h2>
       <div className="form-group">
@@ -135,7 +135,7 @@ function AñadirCategoria() {
       <button type="submit" className="form-submit" >Añadir Categoría</button>
     </form>
   </div>
-  <div className="table-container">
+  <div className="table-container-category">
     <div className='Tabla-2'>
     <table className="table-categoria">
       <thead>

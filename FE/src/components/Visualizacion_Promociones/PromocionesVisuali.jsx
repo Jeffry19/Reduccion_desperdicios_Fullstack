@@ -183,51 +183,20 @@ function PromocionesVisuali() {
       <br />
       <br />
       <div className="Texto-bienvenida">
-      <SplitText
-        text="Descubre ofertas increíbles y productos seleccionados cuidadosamente para ti."
-        className="bienvenida-texto"
-        delay={10}
-        animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
-        animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
-        easing="easeOutCubic"
-        threshold={0.2}
-        rootMargin="-50px"
-        onLetterAnimationComplete={handleAnimationComplete}
-      />
-      <SplitText
-        text="¡Calidad y frescura garantizada!"
-        className="bienvenida-resalta"
-        delay={10}
-        animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
-        animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
-        easing="easeOutCubic"
-        threshold={0.2}
-        rootMargin="-50px"
-        onLetterAnimationComplete={handleAnimationComplete}
-      />
-      <SplitText
-        text="Aprovecha nuestras promociones exclusivas y llena tu carrito con productos irresistibles."
-        className="bienvenida-texto"
-        delay={10}
-        animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
-        animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
-        easing="easeOutCubic"
-        threshold={0.2}
-        rootMargin="-50px"
-        onLetterAnimationComplete={handleAnimationComplete}
-      />
-      <SplitText
-        text="¡No esperes más, explora nuestro catálogo hoy mismo!"
-        className="bienvenida-texto"
-        delay={10}
-        animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
-        animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
-        easing="easeOutCubic"
-        threshold={0.2}
-        rootMargin="-50px"
-        onLetterAnimationComplete={handleAnimationComplete}
-      />
-      </div>
+  <p className="bienvenida-texto">
+    Descubre ofertas increíbles y productos seleccionados cuidadosamente para ti.
+  </p>
+  <p className="bienvenida-resalta">
+    ¡Calidad y frescura garantizada!
+  </p>
+  <p className="bienvenida-texto">
+    Aprovecha nuestras promociones exclusivas y llena tu carrito con productos irresistibles.
+  </p>
+  <p className="bienvenida-texto">
+    ¡No esperes más, explora nuestro catálogo hoy mismo!
+  </p>
+</div>
+
 
       {/* Sección de categorías destacadas */}
       <div className="highlighted-categories">
